@@ -20,11 +20,12 @@ print(ventas.head())
 
 print(ventas["ventas"].max())
 
-print(ventas.loc[ventas["ventas"].idxmax(),"sucursal" ])
+print(ventas.loc[ventas["ventas"].idxmax(),"sucursal" ]) #sucursal con mayor venta
 
-print(ventas.loc[ventas["ventas"].idxmin(),"sucursal" ])
+print(ventas.loc[ventas["ventas"].idxmin(),"sucursal" ]) # sucursal con menor venta
 
-ventas.groupby("region").sum("ventas")
-ventas_per_region = ventas.groupby("region").sum("ventas")
+ventas_per_region = ventas.groupby("region")["ventas"].sum()
 print(ventas_per_region)
+
+print(ventas_per_region.idxmax()) # Region con mayor venta total
 
